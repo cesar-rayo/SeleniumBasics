@@ -1,7 +1,7 @@
 package tests.suite;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class TestGroup2 {
 	@Test(dependsOnMethods={"f4","f5"},groups={"A"},alwaysRun=true)
@@ -13,11 +13,16 @@ public class TestGroup2 {
 	}
 	
 	@Test(groups={"A"})
-	public void f3() {
+	@Parameters("testName")
+	public void f3(String testName) {
+		System.out.println("Parameter: " + testName);
 	}
 	
 	@Test(groups={"B"})
-	public void f4() {
+	@Parameters({"param_1","param_2"})
+	public void f4(String param_1, String param_2) {
+		System.out.println("Parameter_1: " + param_1);
+		System.out.println("Parameter_2: " + param_2);
 	}
 	
 	@Test(groups={"B"})

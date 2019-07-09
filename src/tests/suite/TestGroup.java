@@ -21,6 +21,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import com.gargoylesoftware.htmlunit.AlertHandler;
+import com.gargoylesoftware.htmlunit.Page;
+
 public class TestGroup {
 	WebDriver driver;
 	JavascriptExecutor jse;
@@ -113,6 +116,8 @@ public class TestGroup {
 		jse.executeScript("arguments[0].scrollIntoView();", element); //Scroll till particular element
 		
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent()); // driver waits 20 sec till alert appears
+		alert.accept();
+		//alert.dismiss();
 		
 		Actions act = new Actions(driver); //Keyboard Mouse Actions
 		act.clickAndHold(element);
@@ -127,5 +132,10 @@ public class TestGroup {
 		dropdown.selectByValue("option2");
 		dropdown.selectByIndex(2);
 		dropdown.selectByVisibleText("Visible Option2");
+		
+		//Send file only works for input type file
+		WebElement uploadFileInput = driver.findElement(By.id("upload-file"));
+		uploadFileInput.sendKeys("/home/file.txt"); // << uploading file
+		
 	}
 }

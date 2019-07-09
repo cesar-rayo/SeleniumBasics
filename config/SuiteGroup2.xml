@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestA">
+	<test name="Group Tests">
+		<parameter name="testName" value="Value A"/>
+		<groups>
+			<run>
+				<include name="A"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="tests.suite.TestGroup2" />
+		</classes>
+	</test>
+	<test name="Group Tests B">
+		<parameter name="param_1" value="Value 1"/>
+		<parameter name="param_2" value="Value 2"/>
+		<groups>
+			<run>
+				<include name="B"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="tests.suite.TestGroup2" />
+		</classes>
+	</test>
+</suite>
