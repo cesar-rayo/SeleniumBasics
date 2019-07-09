@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test" parallel="tests">
+	<test name="Group Tests A">
+		<classes>
+			<class name="tests.suite.TestGroup2" />
+		</classes>
+	</test>
+	<test name="Group Tests B">
+		<classes>
+			<class name="tests.suite.TestAnnotations" />
+		</classes>
+	</test>
+</suite>
